@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>
+Javascript assignment
+</title>
+<link rel="stylesheet" href="Js1.css" />
+</head>
+<body>
+<div id="myDIV" class="header">
+<header>
+Your Todos
+</header>
+<form>
+<input type="text" id="myInput" placeholder="Add a todo and click Add button" style="width:70%"> 
+<button type="button" id="cool" onclick="newElement()" >Add TODO</button>
+</form>
+</div>
+<ul id="myUL">
+</ul>
+<script>
+function newElement() {
+var d=new Date();
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+	var txt=document.createTextNode(d.toDateString());
+	document.getElementById("myUL").appendChild(txt);
+  }
+  document.getElementById("myInput").value = "";
+}
+document.addEventListener("click",function(event)
+{
+	if (event.target.tagName === "LI")
+	{
+		event.target.classList.toggle("checked");
+	}
+});
+</script>
+</body>
+</html>
